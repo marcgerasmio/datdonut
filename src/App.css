@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+
+/*Login page*/
+ .login-button{
+    background-color: #741B47 !important;
+ }
+
+ .login-button:hover{
+    background-color: #741B47 !important;
+    opacity: .75;
+ }
+
+ .login-button:active{
+    opacity: .50;
+ }
+
+ .card-login{
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+ }
+
+ .navbar{
+   height: 70px;
+   background-color: #C17BA0 !important;
+ }
+
+
+/*Register*/
+.card-register{
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title-text{
+   font-family: sans-serif;
+   letter-spacing: 0.05em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/*Home*/
+.navbar-brand{
+   margin-top: 160px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.home-navbar{
+   height: 90px;
+   /* background-color: #C17BA0 !important; */
 }
 
-.App-link {
-  color: #61dafb;
+.drpdwn{
+   background-color: #C17BA0 !important;
+   border-color: #C17BA0 !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bg-home{
+   background-image: url("/public/bg-home.jpg");
+   background-size: cover;
+   width: 1740px;
+   height: 300px;
 }
