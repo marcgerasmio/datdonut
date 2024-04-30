@@ -41,17 +41,40 @@
 
 .home-navbar{
    height: 90px;
-   /* background-color: #C17BA0 !important; */
 }
 
 .drpdwn{
-   background-color: #C17BA0 !important;
-   border-color: #C17BA0 !important;
+   background-color: #212529 !important;
+   border-color: #212529 !important;
 }
 
 .bg-home{
    background-image: url("/public/bg-home.jpg");
    background-size: cover;
-   width: 1740px;
-   height: 300px;
+   max-width: 100%;
+   height: 230px;
+}
+
+.hr{
+   border-top: 10px solid #741B47;
+}
+
+.text{
+   color: #C17BA0;
+}
+
+.text-card{
+   background-color: #212529 !important;
+}
+
+
+/*Footer*/
+.footer-nav{
+   height: 180px;
+}
+
+
+/*Menu*/
+.menu-card{
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }

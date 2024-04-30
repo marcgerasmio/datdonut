@@ -14,7 +14,7 @@ import "../App.css";
 function NavBar(){
     return(
         <>
-            <Navbar variant="dark" className="home-navbar">
+            <Navbar bg="dark" className="home-navbar">
                 <Container>
                     <Navbar.Brand className="navbar-brand">
                         <Image 
