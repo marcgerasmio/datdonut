@@ -8,13 +8,41 @@ import {
 } from "react-bootstrap";
 import { FaUserAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import "../App.css";
+import { useState} from "react";
 
 function Login(){
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const login = async () => {
+        const response = await fetch('http://datdonut.test/api/login', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username,
+            password
+          })
+        });
+    
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+    
+        const data = await response.json();
+    
+        sessionStorage.setItem('username', data.user.username);
+        sessionStorage.setItem('user_id', data.user.id);
+
+        navigate("/home");
+        
+      };
     return(
         <>
             <Navbar className="navbar"></Navbar>
@@ -36,12 +64,13 @@ function Login(){
                                         <InputGroup.Text>
                                             <FaUserAlt />
                                         </InputGroup.Text>
-                                        <FloatingLabel controlId="floatingInput" label="Email address">
+                                        <FloatingLabel controlId="floatingInput" label="Username">
                                             <Form.Control
                                                 size="lg"
-                                                type="email"
+                                                type="text"
                                                 placeholder="name@example.com"
                                                 required
+                                                value={username} onChange={(e) => setUsername(e.target.value)}
                                             />
                                         </FloatingLabel>
                                     </InputGroup>
@@ -55,13 +84,15 @@ function Login(){
                                                 type="password"
                                                 placeholder="Password"
                                                 required
+                                                value={password} onChange={(e) => setPassword(e.target.value)}
                                             />
                                         </FloatingLabel>
                                     </InputGroup>
                                     <div className="d-flex justify-content-center">
                                         <Button 
                                             variant='danger'
-                                            className="login-button w-50 p-3 mb-3 fw-bold" 
+                                            className="login-button w-50 p-3 mb-3 fw-bold"
+                                            onClick={login}
                                         >
                                             Login
                                         </Button>

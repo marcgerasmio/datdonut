@@ -1,80 +1,122 @@
 
 /*Login page*/
- .login-button{
-    background-color: #741B47 !important;
- }
+.login-button{
+   background-color: #741B47 !important;
+   border-color: #741B47 !important;
+}
 
- .login-button:hover{
-    background-color: #741B47 !important;
-    opacity: .75;
- }
+.login-button:hover{
+   background-color: #741B47 !important;
+   opacity: .75;
+}
 
- .login-button:active{
-    opacity: .50;
- }
+.login-button:active{
+   opacity: .50;
+}
 
- .card-login{
-   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
- }
+.card-login{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
 
- .navbar{
-   height: 70px;
-   background-color: #C17BA0 !important;
- }
+.navbar{
+  height: 70px;
+  background-color: #212529 !important;
+}
 
 
 /*Register*/
 .card-register{
-   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
 
 .title-text{
-   font-family: sans-serif;
-   letter-spacing: 0.05em;
+  font-family: sans-serif;
+  letter-spacing: 0.05em;
 }
 
 
 /*Home*/
 .navbar-brand{
-   margin-top: 160px;
+  margin-top: 160px;
 }
 
 .home-navbar{
-   height: 90px;
+  height: 90px;
 }
 
 .drpdwn{
-   background-color: #212529 !important;
-   border-color: #212529 !important;
+  background-color: #212529 !important;
+  border-color: #212529 !important;
 }
 
 .bg-home{
-   background-image: url("/public/bg-home.jpg");
-   background-size: cover;
-   max-width: 100%;
-   height: 230px;
+  background-image: url("/public/bg-home.jpg");
+  background-size: cover;
+  max-width: 100%;
+  height: 230px;
 }
 
 .hr{
-   border-top: 10px solid #741B47;
+  border-top: 10px solid #741B47;
 }
 
 .text{
-   color: #C17BA0;
+  color: #C17BA0;
 }
 
 .text-card{
-   background-color: #212529 !important;
+  background-color: #212529 !important;
 }
 
 
 /*Footer*/
 .footer-nav{
-   height: 180px;
+  height: 180px;
 }
 
 
 /*Menu*/
 .menu-card{
-   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+/*Reviews*/
+
+.card-pink{
+  background-color: #C17BA0 !important;
+}
+
+.card-black{
+  background-color: #212529  !important;
+}
+
+
+/*Cart*/
+.edit-button{
+  background-color: #C17BA0 !important;
+  border-color: #C17BA0 !important;
+}
+
+
+.nav-link {
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.navbar-toggler {
+  background-color: white !important;
+}
+
+@media (max-width: 576px) {
+  .d-flex.flex-wrap {
+      flex-direction: column;
+  }
+
+  .d-flex.justify-content-evenly {
+      justify-content: center;
+  }
 }

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Button, Col,
     Row, FloatingLabel,
     Form, Container,
     Card, Navbar
 } from "react-bootstrap";
-import { Link } from 'react-router-dom';
 import "../App.css";
 import { useNavigate } from 'react-router-dom';
 
-function Register() {
+
+function EditProfile() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -25,7 +25,8 @@ function Register() {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
-
+    const [userData, setUserData] = useState('');
+    const userId = sessionStorage.getItem('user_id');
 
     const validateForm = () => {
         // Basic validation checks for each field
@@ -39,14 +40,41 @@ function Register() {
         }
         return true;
     };
+    const fetchUser = async () => {
+        try {
+            const response = await fetch(`http://datdonut.test/api/getuser/${userId}`);
+            const data = await response.json();
+            console.log(data);
+            setUsername(data[0].username);
+            setFirstname(data[0].firstname);
+            setLastname(data[0].lastname);
+            setBirthmonth(data[0].birthmonth);
+            setDay(data[0].day);
+            setYear(data[0].year);
+            setAddress(data[0].address);
+            setCity(data[0].city);
+            setProvince(data[0].province);
+            setZipcode(data[0].zipcode);
+            setEmail(data[0].email);
+            setPhoneNumber(data[0].phonenumber);
+
+
+        } catch (error) {
+            console.error("Error fetching Food data:", error);
+        }
+    };
+    useEffect(() => {
+        fetchUser();
+    }, []);
+
     
-    const register = async () => {
+    const update = async () => {
 
         if (!validateForm()) return;
         
         try {
-          const response = await fetch('http://datdonut.test/api/createuser', {
-            method: 'POST',
+          const response = await fetch(`http://datdonut.test/api/updateuser/${userId}`, {
+            method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -69,8 +97,8 @@ function Register() {
           });
           const data = response.json();
           console.log(data);
-          alert("registration successful!");
-          navigate("/");
+          alert("update profile successful!");
+          navigate("/home");
       
         } catch (error) {
           // Handle errors
@@ -84,7 +112,7 @@ function Register() {
         <>
             <Navbar className="navbar"></Navbar>
             <div className="mt-5 text-center">
-                <h1 className="title-text">Fill Out Your Personal Information</h1>
+                <h1 className="title-text">Edit Profile</h1>
             </div>
             <Container className="mt-4">
                 <Card className="p-4 card-register">
@@ -173,15 +201,11 @@ function Register() {
                                 </Col>
                             </Row>
                             <div className="d-flex justify-content-center mt-4">
-                                <Button variant="danger" className="login-button w-50 p-3 fw-bold " onClick={register}>
-                                    Register
+                                <Button variant="danger" className="login-button w-50 p-3 fw-bold " onClick={update}>
+                                    Save
                                 </Button>
                             </div>
                         </Form>
-                        <div className="d-flex justify-content-center mt-3">
-                            <p>Already have an account?&nbsp;</p>
-                            <Link to='/'>Login</Link>
-                        </div>
                     </Card.Body>
                 </Card>
             </Container>
@@ -189,4 +213,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default EditProfile;
