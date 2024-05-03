@@ -50,7 +50,7 @@ function Menu() {
                             <Card.Img variant="top" src="beverage-menu.jpg" alt="" height={275} />
                             <Card.Body className="d-flex justify-content-center">
                                 <Button 
-                                    onClick={redirectfoods}
+                                    onClick={redirectbeverage}
                                     variant="login-button" 
                                     className="w-75 rounded-pill fw-bold login-button text-white"
                                 >

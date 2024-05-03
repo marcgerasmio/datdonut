@@ -151,7 +151,6 @@ navigate("/");
                 </Offcanvas.Body>
             </Offcanvas>
             <div className={`bg-home ${showOffcanvas ? 'd-lg-block d-none' : ''}`}>
-                {/* Render the image below Offcanvas when viewed on mobile */}
                 <Container className="d-lg-none d-block text-center">
                     <Image
                         src='Dat-Donut-Logo-2.png'

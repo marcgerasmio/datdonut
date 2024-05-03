@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
     Container,
     Card,
-    Button
+    Button, Row, Col
 } from "react-bootstrap";
 import NavBar from "./Navbar.js";
 import Footer from "./Footer.js";
@@ -46,28 +46,33 @@ function Food() {
                 </Container>
                 <hr className="hr" />
             </Container>
-            <Container className="mb-5 d-flex flex-wrap justify-content-evenly">
-                {foodData.map((foodItem, index) => (
-                    <Card key={index} className="m-3 card-register w-25">
-                        <Card.Img
-                            src={foodItem.image_link ? `http://datdonut.test/storage/${foodItem.image_link}` : 'menu.png'} 
-                            alt={foodItem.food_name}
-                            height={200}
-                            width={200}
-                        />
-                        <Card.Footer className="border-0">
-                            <Button
-                                className="w-100 rounded-pill mt-2 fw-bold login-button"
-                                onClick={() => handleClick(foodItem.food_id)}  
-                            >
-                                <FaShoppingCart /> &nbsp;
-                                {foodItem.food_name} &nbsp;&nbsp;&nbsp;&nbsp;
-                                ${foodItem.price}
-                            </Button>
-                        </Card.Footer>
-                    </Card>
-                ))}
-            </Container>
+            <Container className="mb-5">
+    <Row className="justify-content-center">
+        {foodData.map((foodItem, index) => (
+            <Col key={index} xs={12} sm={6} md={4} lg={3} className="mb-4">
+                <Card className="card-register">
+                    <Card.Img
+                        src={foodItem.image_link ? `http://datdonut.test/storage/${foodItem.image_link}` : 'menu.png'} 
+                        alt={foodItem.food_name}
+                        height={200}
+                        width={200}
+                    />
+                    <Card.Footer className="border-0">
+                        <Button
+                            className="w-100 rounded-pill mt-2 fw-bold login-button"
+                            onClick={() => handleClick(foodItem.food_id)}  
+                        >
+                            <FaShoppingCart /> &nbsp;
+                            {foodItem.food_name} &nbsp;&nbsp;&nbsp;&nbsp;
+                            ${foodItem.price}
+                        </Button>
+                    </Card.Footer>
+                </Card>
+            </Col>
+        ))}
+    </Row>
+</Container>
+
             <Footer />
         </>
     );
