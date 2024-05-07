@@ -37,6 +37,10 @@ function Register() {
             alert("Passwords do not match");
             return false;
         }
+        if (password.length < 8) {
+            alert("Password should be at least 8 characters long");
+            return false;
+        }
         return true;
     };
     
